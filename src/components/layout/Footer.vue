@@ -33,7 +33,7 @@
 
             <div class="footer__items-last">
                 <div class="footer__item">
-                    <span class="footer__content-title">Contact information</span>
+                    <span class="footer__content-title">Contact Information</span>
                     <div class="footer__content contact">
                         <div class="contact__details">
                             <i class="fa-solid fa-envelope"></i>
@@ -56,7 +56,7 @@
                 </div>
         
                 <div class="footer__item">
-                    <span class="footer__content-title">Follow us</span>
+                    <span class="footer__content-title">Follow Us</span>
                     <div class="footer__content social-media">
                         <a href="https://www.facebook.com/gdcgwdance">
                             <i class="fa-brands fa-facebook-f fa-xl"></i>
@@ -96,12 +96,18 @@ $header-item-secondary-color: #cb56b2;
     color: $header-item-primary-color;
 
     .footer__content-title {
-        font-size: 18px;
+        font-family: Bebas Neue, sans-serif;
+        font-size: 37px;
         font-weight: 600;
+
+        @media screen and (max-width: 1440px) {
+            font-size: 27px;
+        }
     }
 
     .footer__content {
         display: flex;
+        font-family: Poppins, sans-serif;
 
         &.navigation {
             flex-direction: column;
@@ -111,6 +117,10 @@ $header-item-secondary-color: #cb56b2;
             padding: 0;
             gap: 0.75em;
 
+            @media screen and (max-width: 360px) {
+                font-size: 13.5px;
+            }
+
             .navigation-items {
                 display: flex;
                 gap: 1em;
@@ -119,6 +129,10 @@ $header-item-secondary-color: #cb56b2;
                 color: $header-item-primary-color;
                 text-decoration: none;
                 font-weight: 500;
+
+                & i {
+                    margin-top: 0.15em;
+                }
                 
                 &:hover {
                     color: $header-item-secondary-color;
@@ -134,28 +148,42 @@ $header-item-secondary-color: #cb56b2;
             flex-direction: column;
             gap: 0.5em;
 
+            @media screen and (max-width: 360px) {
+                font-size: 13.5px;
+            }
+
             .contact__details {
                 display: flex;
                 gap: 1em;
-            }
+                
+                &:first-child {
+                    align-items: center;
+                }
 
-            .phone-list {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-                gap: 0.25em;
+                & i {
+                    margin-top: 0.15em;
+                }
 
-                .phone-info {
+                .phone-list {
                     display: flex;
-                    gap: 0.15em;
-
-                    @media screen and (max-width: 768px) {
-                        flex-direction: column;
-                        gap: 0.75em;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    text-align: left;
+                    // margin-top: 1em;
+                    gap: 0.25em;
+    
+                    .phone-info {
+                        display: flex;
+                        gap: 0.15em;
+    
+                        @media screen and (max-width: 768px) {
+                            flex-direction: column;
+                            gap: 0.75em;
+                        }
                     }
                 }
             }
+
         }
 
         &.social-media {
@@ -196,16 +224,20 @@ $header-item-secondary-color: #cb56b2;
     @media screen and (max-width: 540px) {
         gap: 3em;
     }
+    
+    @media screen and (max-width: 360px) {
+        gap: 1em;
+    }
 
     .footer__logo {
         display: flex;
         align-items: center;
         
         img {
-            width: 12.96em;
-            height: 6em;
+            width: 15.12em;
+            height: 7em;
 
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 950px) {
                 width: 10.8em;
                 height: 5em;
             }
@@ -219,9 +251,13 @@ $header-item-secondary-color: #cb56b2;
 
     .footer__items {
         display: flex;
-        gap: 5.75em;
+        gap: 9.25em;
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 1440px) {
+            gap: 5.75em;
+        }
+
+        @media screen and (max-width: 950px) {
             gap: 4em;
         }
 
@@ -236,10 +272,14 @@ $header-item-secondary-color: #cb56b2;
 
         .footer__items-last {
             display: flex;
-            gap: 5.75em;
+            gap: 9.25em;
 
             .footer__item{
                 @include footer-item();
+            }
+
+            @media screen and (max-width: 1440px) {
+                gap: 5.75em;
             }
 
             @media screen and (max-width: 1024px) {
