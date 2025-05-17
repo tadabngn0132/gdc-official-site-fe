@@ -1,7 +1,7 @@
 <template>
     <div class="footer">
         <div class="footer__logo">
-            <img src="@/assets/logo/logo.webp" alt="Logo">
+            <img :src="clubInfo.logo" alt="Logo">
         </div>
 
         <div class="footer__items">
@@ -37,20 +37,22 @@
                     <div class="footer__content contact">
                         <div class="contact__details">
                             <i class="fa-solid fa-envelope"></i>
-                            <span class="content__email">gdc.fpt2022@gmail.com</span>
+                            <span class="content__email">
+                                {{ clubInfo.contactInfo.email }}
+                            </span>
                         </div>
                         <div class="contact__details">
                             <i class="fa-solid fa-phone"></i>
-                            <div class="phone-list">
-                                <div class="phone-info">
-                                    <span class="phone-number">0943551749</span>
-                                    <span class="phone-name">(Nguyễn Thái Mạnh - President)</span>
-                                </div>
-                                <div class="phone-info">
-                                    <span class="phone-number">0705610637</span>
-                                    <span class="phone-name">(Trần Bích Ngọc - Vice President)</span>
-                                </div>
-                            </div>
+                            <ul v-if="clubInfo.contactInfo.phoneInfo.length > 0" class="phone-list">
+                                <li v-for="(info, i) in clubInfo.contactInfo.phoneInfo" :key="i" class="phone-info">
+                                    <span class="phone-number">
+                                        {{ info.number }}
+                                    </span>
+                                    <span class="phone-name">
+                                        {{ info.nameandrole}}
+                                    </span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -58,16 +60,16 @@
                 <div class="footer__item">
                     <span class="footer__content-title">Follow Us</span>
                     <div class="footer__content social-media">
-                        <a href="https://www.facebook.com/gdcgwdance">
+                        <a :href="clubInfo.socialMedia.facebook">
                             <i class="fa-brands fa-facebook-f fa-xl"></i>
                         </a>
-                        <a href="https://www.instagram.com/gdc.gwhn/">
+                        <a :href="clubInfo.socialMedia.instagram">
                             <i class="fa-brands fa-instagram fa-xl"></i>
                         </a>
-                        <a href="https://www.youtube.com/@GDC-GreenwichDanceCrew">
+                        <a :href="clubInfo.socialMedia.youtube">
                             <i class="fa-brands fa-youtube fa-xl"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@greenwichdancecrew">
+                        <a :href="clubInfo.socialMedia.tiktok">
                             <i class="fa-brands fa-tiktok fa-xl"></i>
                         </a>
                     </div>
@@ -79,7 +81,33 @@
 
 <script>
 export default {
-    name: "Footer"
+    name: "Footer",
+    data() {
+        return {
+            clubInfo: {
+                logo: require('@/assets/logo/logo.webp'),
+                contactInfo: {
+                    email: 'gdc.fpt2022@gmail.com',
+                    phoneInfo: [
+                        {
+                            number: "0943551749",
+                            nameandrole: "(Nguyễn Thái Mạnh - President)"
+                        },
+                        {
+                            number: "0705610637",
+                            nameandrole: "(Trần Bích Ngọc - Vice President)"
+                        }
+                    ]
+                },
+                socialMedia: {
+                    facebook: "https://www.facebook.com/gdcgwdance",
+                    instagram: "https://www.instagram.com/gdc.gwhn/",
+                    youtube: "https://www.youtube.com/@GDC-GreenwichDanceCrew",
+                    tiktok: "https://www.tiktok.com/@greenwichdancecrew"
+                }
+            }
+        }
+    }
 }
 </script>
 

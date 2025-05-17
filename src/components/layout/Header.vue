@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header__logo">
             <router-link to="/">
-                <img src="@/assets/logo/logo.webp" alt="Logo">
+                <img :src="clubInfo.logo" alt="Logo">
             </router-link>
         </div>
 
@@ -63,6 +63,9 @@ export default {
     name: "Header",
     data() {
         return {
+            clubInfo: {
+                logo: require('@/assets/logo/logo.webp'),
+            },
             isHeaderNavOpen: false
         }
     },
