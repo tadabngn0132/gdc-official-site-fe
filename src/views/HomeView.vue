@@ -6,6 +6,10 @@
     <!-- <Footer></Footer> -->
     <!-- <CannotAccess></CannotAccess> -->
     <Loading></Loading>
+    <div class="submit">
+      <ButtonLoading></ButtonLoading>
+      <span class="submit__text">Save Changes</span>
+    </div>
   </div>
 </template>
 
@@ -16,6 +20,7 @@ import Header from '@/components/layout/Header.vue';
 import Footer from '@/components/layout/Footer.vue';
 import CannotAccess from '@/components/common/CannotAccess.vue';
 import Loading from '@/components/common/Loading.vue';
+import ButtonLoading from '@/components/common/ButtonLoading.vue';
 
 export default {
   name: 'HomeView',
@@ -24,7 +29,35 @@ export default {
     Header,
     Footer,
     CannotAccess,
-    Loading
+    Loading,
+    ButtonLoading
   }
 }
 </script>
+
+<style scoped lang="scss">
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: black;
+    width: fit-content;
+    padding: 0.5em 1em;
+    border-radius: 0.75em;
+
+    &__text {
+      color: white;
+      font-weight: 450;
+    }
+  }
+}
+
+</style>
