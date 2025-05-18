@@ -4,7 +4,8 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <Header></Header> -->
     <!-- <Footer></Footer> -->
-    <CannotAccess></CannotAccess>
+    <!-- <CannotAccess></CannotAccess> -->
+    <Loading></Loading>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import Header from '@/components/layout/Header.vue';
 import Footer from '@/components/layout/Footer.vue';
 import CannotAccess from '@/components/common/CannotAccess.vue';
+import Loading from '@/components/common/Loading.vue';
 
 export default {
   name: 'HomeView',
@@ -21,7 +23,8 @@ export default {
     HelloWorld,
     Header,
     Footer,
-    CannotAccess
+    CannotAccess,
+    Loading
   }
 }
 </script>
