@@ -27,14 +27,17 @@ $item-secondary-color: #cb56b2;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.75em;
+    border-radius: 50%;
+    background-color: $item-primary-color;
 
     &__loader {
-        width: 48px;
-        height: 48px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         display: inline-block;
         position: relative;
-        border: 3px solid;
+        border: 0.175em solid;
         border-color: $item-secondary-color $item-secondary-color transparent transparent;
         box-sizing: border-box;
         animation: rotation 1s linear infinite;
@@ -49,18 +52,18 @@ $item-secondary-color: #cb56b2;
             top: 0;
             bottom: 0;
             margin: auto;
-            border: 3px solid;
-            border-color: transparent transparent $item-primary-color $item-primary-color;
-            width: 40px;
-            height: 40px;
+            border: 0.175em solid;
+            border-color: transparent transparent $item-secondary-primary-color $item-secondary-primary-color;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             box-sizing: border-box;
             animation: rotationBack 0.5s linear infinite;
             transform-origin: center center;
         }
         &::before {
-            width: 32px;
-            height: 32px;
+            width: 24px;
+            height: 24px;
             border-color: $item-secondary-color $item-secondary-color transparent transparent;
             animation: rotation 1.5s linear infinite;
         }
