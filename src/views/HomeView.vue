@@ -5,11 +5,12 @@
     <!-- <Header></Header> -->
     <!-- <Footer></Footer> -->
     <!-- <CannotAccess></CannotAccess> -->
-    <Loading></Loading>
+    <!-- <Loading></Loading>
     <div class="submit">
       <ButtonLoading></ButtonLoading>
       <span class="submit__text">Save Changes</span>
-    </div>
+    </div> -->
+    <NotFound></NotFound>
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import Footer from '@/components/layout/Footer.vue';
 import CannotAccess from '@/components/common/CannotAccess.vue';
 import Loading from '@/components/common/Loading.vue';
 import ButtonLoading from '@/components/common/ButtonLoading.vue';
+import NotFound from '@/components/common/NotFound.vue';
 
 export default {
   name: 'HomeView',
@@ -30,7 +32,8 @@ export default {
     Footer,
     CannotAccess,
     Loading,
-    ButtonLoading
+    ButtonLoading,
+    NotFound
   }
 }
 </script>
