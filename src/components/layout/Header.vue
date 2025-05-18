@@ -13,7 +13,7 @@
             </router-link>
             <router-link to="/#about" class="header__nav-items">
                 <i class="fa-solid fa-circle-info fa-lg"></i>
-                <span class="nav-text">About</span>
+                <span class="nav-text">About Us</span>
             </router-link>
             <router-link to="/#members" class="header__nav-items">
                 <i class="fa-solid fa-users fa-lg"></i>
@@ -40,7 +40,7 @@
             </router-link>
             <router-link to="/#about" class="header__nav-items">
                 <i class="fa-solid fa-circle-info fa-lg"></i>
-                <span class="nav-text">About</span>
+                <span class="nav-text">About Us</span>
             </router-link>
             <router-link to="/#members" class="header__nav-items">
                 <i class="fa-solid fa-users fa-lg"></i>

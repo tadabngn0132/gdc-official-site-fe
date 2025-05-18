@@ -14,7 +14,7 @@
                     </router-link>
                     <router-link to="/#about" class="navigation-items">
                         <i class="fa-solid fa-circle-info"></i>
-                        <span class="nav-text">About</span>
+                        <span class="nav-text">About Us</span>
                     </router-link>
                     <router-link to="/#members" class="navigation-items">
                         <i class="fa-solid fa-users"></i>
