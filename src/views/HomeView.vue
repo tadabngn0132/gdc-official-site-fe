@@ -10,7 +10,9 @@
       <ButtonLoading></ButtonLoading>
       <span class="submit__text">Save Changes</span>
     </div> -->
-    <NotFound></NotFound>
+    <!-- <NotFound></NotFound> -->
+
+    <Slider></Slider>
   </div>
 </template>
 
@@ -23,6 +25,7 @@ import CannotAccess from '@/components/common/CannotAccess.vue';
 import Loading from '@/components/common/Loading.vue';
 import ButtonLoading from '@/components/common/ButtonLoading.vue';
 import NotFound from '@/components/common/NotFound.vue';
+import Slider from '@/components/common/Slider.vue';
 
 export default {
   name: 'HomeView',
@@ -33,7 +36,8 @@ export default {
     CannotAccess,
     Loading,
     ButtonLoading,
-    NotFound
+    NotFound,
+    Slider
   }
 }
 </script>

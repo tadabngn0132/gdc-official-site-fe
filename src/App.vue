@@ -39,7 +39,7 @@ body {
 }
 
 .content {
-  padding: 4em;
+  padding: 4em 0;
   min-height: 40vw;
 }
 
