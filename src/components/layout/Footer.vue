@@ -245,9 +245,6 @@ $header-item-secondary-color: #cb56b2;
     justify-content: space-between;
     padding: 1.5em 1em;
     background-color: $header-background-primary-color;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 
     @media screen and (max-width: 540px) {
         gap: 3em;
