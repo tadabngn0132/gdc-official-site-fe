@@ -140,7 +140,6 @@ $header-item-secondary-color: #cb56b2;
         &.navigation {
             flex-direction: column;
             text-decoration: none;
-            font-weight: 500;
             text-align: left;
             padding: 0;
             gap: 0.75em;
@@ -156,7 +155,6 @@ $header-item-secondary-color: #cb56b2;
                 padding: 0;
                 color: $header-item-primary-color;
                 text-decoration: none;
-                font-weight: 500;
 
                 & i {
                     margin-top: 0.15em;
@@ -197,7 +195,6 @@ $header-item-secondary-color: #cb56b2;
                     flex-direction: column;
                     align-items: flex-start;
                     text-align: left;
-                    // margin-top: 1em;
                     gap: 0.25em;
     
                     .phone-info {

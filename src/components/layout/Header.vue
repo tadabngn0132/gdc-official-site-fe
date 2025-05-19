@@ -148,7 +148,6 @@ $header-item-secondary-color: #cb56b2;
     .header__nav {
         display: flex;
         font-family: Poppins, sans-serif;
-        font-weight: 500;
         background-color: $header-background-primary-color;
         text-align: left;
         padding: 0;
@@ -182,7 +181,6 @@ $header-item-secondary-color: #cb56b2;
             color: $header-item-primary-color;
             text-decoration: none;
             border-bottom: 0.15em solid $header-background-primary-color;
-            font-weight: 500;
 
             &.router-link-exact-active {
                 color: $header-item-secondary-color;
