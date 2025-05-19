@@ -1,8 +1,19 @@
 <template>
     <div v-if="slider.length > 0" class="slider">
         <div class="slider__items">
+            <!-- Clone slide cuối lên vị trí đầu -->
+            <div class="slider__item clone">
+                <img :src="slider[slider.length - 1].image" :alt="slider[slider.length - 1].altImg">
+            </div>
+
+            <!-- Slide gốc -->
             <div v-for="(slide, i) in slider" :key="i" class="slider__item">
                 <img :src="slide.image" :alt="slide.altImg">
+            </div>
+
+            <!-- Clone slide đầu xuống vị trí cuối -->
+            <div class="slider__item clone">
+                <img :src="slider[0].image" :alt="slider[0].altImg">
             </div>
         </div>
 
@@ -21,10 +32,10 @@
 
         <ul class="slider__dots">
             <li 
-            v-for="(slide, index) in slider" 
+            v-for="index in slider" 
             :key="index" 
-            :class="{ active: index === active }"
-            @click="dotClick(index)"></li>
+            :class="{ active: index === indexOfCurrentSlideReal - 1 }"
+            @click="goToPosition(index)"></li>
         </ul>
     </div>
 </template>
@@ -48,40 +59,49 @@ export default {
                     altImg: "Slide 3"
                 }
             ],
-            active: 0
+            indexOfCurrentSlideReal: 1,
+            isConverting: false
         }
     },
     computed: {
-        lengthItem() {
-            return this.slider.length - 1
+        indexOfLastSlide() {
+            return this.slider.length + 1
         }
     },
     methods: {
         next() {
-            if (this.active + 1 > this.lengthItem)
-                this.active = 0
-            else 
-                this.active = this.active + 1
+            if (this.isConverting) 
+                return
 
+            this.indexOfCurrentSlideReal = this.indexOfCurrentSlideReal + 1
             this.reloadSlider()
+
+            if (this.indexOfCurrentSlideReal > this.indexOfLastSlide - 1)
+                this.handleTransitionEnd()
         },
         previous() {
-            if (this.active - 1 < 0)
-                this.active = this.lengthItem
-            else 
-                this.active = this.active - 1
+            if (this.isConverting) 
+                return
 
+            this.indexOfCurrentSlideReal = this.indexOfCurrentSlideReal - 1
             this.reloadSlider()
+
+            if (this.indexOfCurrentSlideReal < 1)
+                this.handleTransitionEnd()
         },
-        reloadSlider() {
+        reloadSlider(withTransition = true) {
             const itemList = document.querySelector('.slider__items')
             const items = document.querySelectorAll('.slider__item')
 
             if(itemList) {
-                let slideWidth = items[this.active].offsetWidth
-                const translateXValue = -this.active * slideWidth
+                // Áp dụng transition chỉ khi cần
+                itemList.style.transition = withTransition ? 'transform 0.75s ease' : 'none'
+
+                let slideWidth = items[this.indexOfCurrentSlideReal].offsetWidth
+                const translateXValue = -this.indexOfCurrentSlideReal * slideWidth
 
                 itemList.style.transform = `translateX(${translateXValue}px)`
+                // itemList.style.transform = `translate3d(${translateXValue}px, 0px, 0px)`
                 
 
                 this.updateActiveDot()
@@ -94,8 +114,15 @@ export default {
             const dots = document.querySelectorAll('.slider__dots li')
             let lastActiveDot = document.querySelector('.slider__dots li.active')
             
-            lastActiveDot.classList.remove('active')
-            dots[this.active].classList.add('active')
+            if (lastActiveDot)
+                lastActiveDot.classList.remove('active')
+
+            if (this.indexOfCurrentSlideReal > this.indexOfLastSlide - 1)
+                dots[0].classList.add('active')
+            else if (this.indexOfCurrentSlideReal < 1)
+                dots[this.indexOfLastSlide - 2].classList.add('active')
+            else
+                dots[this.indexOfCurrentSlideReal - 1].classList.add('active')
         },
         startAutoSlide() {
             this.slideInterval = setInterval(() => {
@@ -105,9 +132,33 @@ export default {
         stopAutoSlide() {
             clearInterval(this.slideInterval)
         },
-        dotClick(index) {
-            this.active = index
+        goToPosition(index) {
+            this.indexOfCurrentSlideReal = index
             this.reloadSlider()
+        },
+        handleTransitionEnd() {
+            // Đánh dấu đang trong quá trình đổi vị trí để bị spam cũng không sao
+            this.isConverting = true
+
+            // Thêm sự kiện lắng nghe kết thúc transition (vừa đến vị trí slide clone)
+            const itemList = document.querySelector('.slider__items')
+            itemList.addEventListener('transitionend', this.convertCloneToRealPosition, { once: true })
+        },
+        convertCloneToRealPosition() {
+            // Convert từ vị trí slide clone về vị trí slide thật
+            if (this.indexOfCurrentSlideReal > this.indexOfLastSlide - 1) {
+                // Đã đến clone của slide đầu, nhảy về slide đầu thật
+                this.indexOfCurrentSlideReal = 1
+            } else if (this.indexOfCurrentSlideReal < 1) {
+                // Đã đến clone của slide cuối, nhảy về slide cuối thật
+                this.indexOfCurrentSlideReal = this.indexOfLastSlide - 1
+            }
+
+            // Tắt transition để nhảy ngay lập tức mà không nhìn thấy
+            this.reloadSlider(false)
+
+            // Bỏ đánh dấu đang đổi vị trí
+            this.isConverting = false
         }
     },
     mounted() {
@@ -148,6 +199,7 @@ $shadow-color: rgba(55, 55, 55, 0.35);
     &__items {
         display: flex;
         width: 100%;
+        // transform: translate3d(0px, 0px, 0px);
         transform: translateX(0);
         transition: transform 0.75s ease;
     }
@@ -235,7 +287,7 @@ $shadow-color: rgba(55, 55, 55, 0.35);
             background-color: $primary-background-color;
             margin: 1em 0.75em;
             border-radius: 20px;
-            transition: all 0.75s ease-in-out;
+            transition: all 0.75s ease;
             cursor: pointer;
 
             &.active {
