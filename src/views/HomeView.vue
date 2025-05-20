@@ -13,7 +13,9 @@
     <!-- <NotFound></NotFound> -->
 
     <Slider></Slider>
-    <Tooltip></Tooltip>
+    <!-- <Tooltip
+    :content="'Haha'"
+    :trianglePositionWithContent="'up'"></Tooltip> -->
   </div>
 </template>
 

@@ -60,18 +60,42 @@
                 <div class="footer__item">
                     <span class="footer__content-title">Follow Us</span>
                     <div class="footer__content social-media">
-                        <a :href="clubInfo.socialMedia.facebook">
-                            <i class="fa-brands fa-facebook-f fa-xl"></i>
-                        </a>
-                        <a :href="clubInfo.socialMedia.instagram">
-                            <i class="fa-brands fa-instagram fa-xl"></i>
-                        </a>
-                        <a :href="clubInfo.socialMedia.youtube">
-                            <i class="fa-brands fa-youtube fa-xl"></i>
-                        </a>
-                        <a :href="clubInfo.socialMedia.tiktok">
-                            <i class="fa-brands fa-tiktok fa-xl"></i>
-                        </a>
+                        <div class="social-media__content">
+                            <a class="facebook" :href="clubInfo.socialMedia.facebook">
+                                <i class="fa-brands fa-facebook-f fa-xl"></i>
+                            </a>
+                            <Tooltip
+                            class="tooltip facebook"
+                            :content="'Facebook'"
+                            :trianglePositionWithContent="'down'"></Tooltip>
+                        </div>
+                        <div class="social-media__content">
+                            <a class="instagram" :href="clubInfo.socialMedia.instagram">
+                                <i class="fa-brands fa-instagram fa-xl"></i>
+                            </a>
+                            <Tooltip
+                            class="tooltip instagram"
+                            :content="'Instagram'"
+                            :trianglePositionWithContent="'down'"></Tooltip>
+                        </div>
+                        <div class="social-media__content">
+                            <a class="youtube" :href="clubInfo.socialMedia.youtube">
+                                <i class="fa-brands fa-youtube fa-xl"></i>
+                            </a>
+                            <Tooltip
+                            class="tooltip youtube"
+                            :content="'Youtube'"
+                            :trianglePositionWithContent="'down'"></Tooltip>
+                        </div>
+                        <div class="social-media__content">
+                            <a class="tiktok" :href="clubInfo.socialMedia.tiktok">
+                                <i class="fa-brands fa-tiktok fa-xl"></i>
+                            </a>
+                            <Tooltip
+                            class="tooltip tiktok"
+                            :content="'TikTok'"
+                            :trianglePositionWithContent="'down'"></Tooltip>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,8 +104,13 @@
 </template>
 
 <script>
+import Tooltip from '../common/Tooltip.vue';
+
 export default {
     name: "Footer",
+    components: {
+        Tooltip
+    },
     data() {
         return {
             clubInfo: {
@@ -214,18 +243,57 @@ $header-item-secondary-color: #cb56b2;
         &.social-media {
             gap: 1.5em;
 
-            a {
-                padding: 0.25em 0.1em;
-                color: $header-item-primary-color;
+            .social-media__content {
+                display: flex;
+                position: relative;
 
-                &:hover {
-                    color: $header-item-secondary-color;
+                a {
+                    padding: 0.25em 0.1em;
+                    color: $header-item-primary-color;
+                    transition: all 0.3s ease-in-out;
+    
+                    &:hover {
+                        color: $header-item-secondary-color;
+                    }
+
+                    &.facebook, &.instagram, &.youtube, &.tiktok {
+                        &:hover ~.tooltip{
+                            opacity: 1;
+                            transform: translateY(-10%);
+                        }
+                    }
+                    
+                    &:active {
+                        color: $header-item-secondary-color;
+                    }
                 }
+                
+                & .tooltip {
+                    opacity: 0;
+                    position: absolute;
+                    bottom: 120%;
+                    z-index: 10;
+                    transform: translateY(0);
+                    transition: all 0.3s ease-in-out;
+                    
+                    &.facebook {
+                        left: -225%;
+                    }
 
-                &:active {
-                    color: $header-item-secondary-color;
+                    &.instagram {
+                        left: -170%;
+                    }
+
+                    &.youtube {
+                        left: -105%;
+                    }
+
+                    &.tiktok {
+                        left: -100%;
+                    }
                 }
             }
+
         }
     }
 }
