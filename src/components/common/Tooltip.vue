@@ -39,13 +39,13 @@ export default {
             leftTriangle.style.display = 'none';
             rightTriangle.style.display = 'none';
 
-            if (this.trianglePosition === 'up') {
+            if (this.trianglePositionWithContent === 'up') {
                 tooltipContainer.style.flexDirection = 'column'
                 upTriangle.style.display = 'block'
-            } else if (this.trianglePosition === 'down') {
+            } else if (this.trianglePositionWithContent === 'down') {
                 tooltipContainer.style.flexDirection = 'column-reverse'
                 downTriangle.style.display = 'block'
-            } else if (this.trianglePosition === 'left') {
+            } else if (this.trianglePositionWithContent === 'left') {
                 tooltipContainer.style.flexDirection = 'row'
                 leftTriangle.style.display = 'block'
             } else {
@@ -56,15 +56,6 @@ export default {
     },
     mounted() {
         this.setTrianglePosition()
-    },
-    watch: {
-        trianglePositionWithContent: {
-            immediate: true,
-            handler(newVal) {
-                this.trianglePosition = newVal,
-                this.setTrianglePosition()
-            }
-        }
     }
 }
 </script>
