@@ -13,6 +13,7 @@
     <!-- <NotFound></NotFound> -->
 
     <Slider></Slider>
+    <Tooltip></Tooltip>
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import Loading from '@/components/common/Loading.vue';
 import ButtonLoading from '@/components/common/ButtonLoading.vue';
 import NotFound from '@/components/common/NotFound.vue';
 import Slider from '@/components/common/Slider.vue';
+import Tooltip from '@/components/common/Tooltip.vue';
 
 export default {
   name: 'HomeView',
@@ -37,7 +39,8 @@ export default {
     Loading,
     ButtonLoading,
     NotFound,
-    Slider
+    Slider,
+    Tooltip
   }
 }
 </script>
