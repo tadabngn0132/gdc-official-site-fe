@@ -32,10 +32,10 @@
 
         <ul class="slider__dots">
             <li 
-            v-for="index in slider" 
+            v-for="(slide, index) in slider" 
             :key="index" 
             :class="{ active: index === indexOfCurrentSlideReal - 1 }"
-            @click="goToPosition(index)"></li>
+            @click="goToPosition(index + 1)"></li>
         </ul>
     </div>
 </template>
@@ -57,6 +57,14 @@ export default {
                 {
                     image: require("@/assets/images/slider/3.webp"),
                     altImg: "Slide 3"
+                },
+                {
+                    image: require("@/assets/images/slider/4.webp"),
+                    altImg: "Slide 4"
+                },
+                {
+                    image: require("@/assets/images/slider/5.webp"),
+                    altImg: "Slide 5"
                 }
             ],
             indexOfCurrentSlideReal: 1,
@@ -285,7 +293,7 @@ $shadow-color: rgba(55, 55, 55, 0.35);
             width: 0.5em;
             height: 0.5em;
             background-color: $primary-background-color;
-            margin: 1em 0.75em;
+            margin: 1em 0.25em;
             border-radius: 20px;
             transition: all 0.75s ease;
             cursor: pointer;
