@@ -94,9 +94,10 @@ $shadow-color: rgba(0, 0, 0, 0.25);
         width: 0;
         height: 0;
         position: absolute;
+        z-index: 2;
         
         &.up {
-            bottom: 99%;
+            bottom: 93%;
             display: none;
             border-left: 0.4em solid transparent;
             border-right: 0.4em solid transparent;
@@ -104,7 +105,7 @@ $shadow-color: rgba(0, 0, 0, 0.25);
         }
         
         &.down {
-            top: 99%;
+            top: 93%;
             display: none;
             border-left: 0.4em solid transparent;
             border-right: 0.4em solid transparent;
@@ -112,7 +113,7 @@ $shadow-color: rgba(0, 0, 0, 0.25);
         }
 
         &.left {
-            right: 99%;
+            right: 93%;
             display: none;
             border-bottom: 0.4em solid transparent;
             border-top: 0.4em solid transparent;
@@ -120,7 +121,7 @@ $shadow-color: rgba(0, 0, 0, 0.25);
         }
 
         &.right {
-            left: 99%;
+            left: 93%;
             display: none;
             border-bottom: 0.4em solid transparent;
             border-top: 0.4em solid transparent;
@@ -133,7 +134,8 @@ $shadow-color: rgba(0, 0, 0, 0.25);
         font-family: Rubik, sans-serif;
         outline: none;
         background-color: $item-secondary-color;
-        padding: 0.75em 1em;
+        padding: 0.5em 0.75em;
+        font-size: 13px;
         border-radius: 1em;
         border: unset;
     }
