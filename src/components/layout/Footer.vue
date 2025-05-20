@@ -120,11 +120,11 @@ export default {
                     phoneInfo: [
                         {
                             number: "0943551749",
-                            nameandrole: "(Nguyễn Thái Mạnh - President)"
+                            nameandrole: "(Nguyen Thai Manh - President)"
                         },
                         {
                             number: "0705610637",
-                            nameandrole: "(Trần Bích Ngọc - Vice President)"
+                            nameandrole: "(Tran Bich Ngoc - Vice President)"
                         }
                     ]
                 },
@@ -277,19 +277,19 @@ $header-item-secondary-color: #cb56b2;
                     transition: all 0.3s ease-in-out;
                     
                     &.facebook {
-                        left: -225%;
+                        left: -165%;
                     }
 
                     &.instagram {
-                        left: -170%;
+                        left: -115%;
                     }
 
                     &.youtube {
-                        left: -105%;
+                        left: -65%;
                     }
 
                     &.tiktok {
-                        left: -100%;
+                        left: -60%;
                     }
                 }
             }
