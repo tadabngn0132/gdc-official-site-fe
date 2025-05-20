@@ -308,7 +308,7 @@ $header-item-secondary-color: #cb56b2;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 1.5em 1em;
+    padding: 1.5em 2em;
     background-color: $header-background-primary-color;
 
     @media screen and (max-width: 540px) {
@@ -341,10 +341,10 @@ $header-item-secondary-color: #cb56b2;
 
     .footer__items {
         display: flex;
-        gap: 9.25em;
+        gap: 8.5em;
 
         @media screen and (max-width: 1440px) {
-            gap: 5.75em;
+            gap: 4.5em;
         }
 
         @media screen and (max-width: 950px) {
@@ -362,14 +362,14 @@ $header-item-secondary-color: #cb56b2;
 
         .footer__items-last {
             display: flex;
-            gap: 9.25em;
+            gap: 8.5em;
 
             .footer__item{
                 @include footer-item();
             }
 
             @media screen and (max-width: 1440px) {
-                gap: 5.75em;
+                gap: 4.5em;
             }
 
             @media screen and (max-width: 1024px) {

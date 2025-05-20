@@ -101,7 +101,7 @@ $header-item-secondary-color: #cb56b2;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5em 1em;
+    padding: 0.5em 2em;
     background-color: $header-background-primary-color;
     position: fixed;
     top: 0;
