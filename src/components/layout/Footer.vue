@@ -170,6 +170,7 @@ $header-item-secondary-color: #cb56b2;
             flex-direction: column;
             text-decoration: none;
             text-align: left;
+            font-size: 15px;
             padding: 0;
             gap: 0.75em;
 
@@ -201,6 +202,7 @@ $header-item-secondary-color: #cb56b2;
 
         &.contact {
             flex-direction: column;
+            font-size: 15px;
             gap: 0.5em;
 
             @media screen and (max-width: 360px) {

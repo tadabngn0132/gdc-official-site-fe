@@ -299,7 +299,7 @@ $shadow-color: rgba(55, 55, 55, 0.35);
             cursor: pointer;
 
             &.active {
-                width: 2em;
+                width: 1.25em;
             }
         }
     }
