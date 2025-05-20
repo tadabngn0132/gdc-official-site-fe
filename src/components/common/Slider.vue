@@ -298,6 +298,10 @@ $shadow-color: rgba(55, 55, 55, 0.35);
             transition: all 0.75s ease;
             cursor: pointer;
 
+            @media screen and (max-width: 768px) {
+                margin: 0.75em 0.25em;              
+            }
+
             &.active {
                 width: 1.25em;
             }

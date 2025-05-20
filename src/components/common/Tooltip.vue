@@ -127,6 +127,7 @@ $shadow-color: rgba(0, 0, 0, 0.25);
         background-color: $item-secondary-color;
         padding: 0.5em 0.75em;
         font-size: 13px;
+        min-width: max-content;
         border-radius: 1em;
         border: unset;
     }

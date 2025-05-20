@@ -353,7 +353,7 @@ $header-item-secondary-color: #cb56b2;
             gap: 4em;
         }
 
-        @media screen and (max-width: 540px) {
+        @media screen and (max-width: 610px) {
             flex-direction: column;
             gap: 2.75em;
         }

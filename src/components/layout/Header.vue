@@ -7,24 +7,44 @@
         </div>
 
         <nav class="header__nav not-mobile">
-            <router-link to="/" class="header__nav-items">
+            <router-link to="/" class="header__nav-items not-bar-icon">
                 <i class="fa-solid fa-house fa-lg"></i>
+                <Tooltip
+                    class="tooltip home"
+                    :content="'Home'"
+                    :trianglePositionWithContent="'up'"></Tooltip>
                 <span class="nav-text">Home</span>
             </router-link>
-            <router-link to="/#about" class="header__nav-items">
+            <router-link to="/#about" class="header__nav-items not-bar-icon">
                 <i class="fa-solid fa-circle-info fa-lg"></i>
+                <Tooltip
+                    class="tooltip about"
+                    :content="'About Us'"
+                    :trianglePositionWithContent="'up'"></Tooltip>
                 <span class="nav-text">About Us</span>
             </router-link>
-            <router-link to="/#members" class="header__nav-items">
+            <router-link to="/#members" class="header__nav-items not-bar-icon">
                 <i class="fa-solid fa-users fa-lg"></i>
+                <Tooltip
+                    class="tooltip members"
+                    :content="'Members'"
+                    :trianglePositionWithContent="'up'"></Tooltip>
                 <span class="nav-text">Members</span>
             </router-link>
-            <router-link to="/#activities" class="header__nav-items">
+            <router-link to="/#activities" class="header__nav-items not-bar-icon">
                 <i class="fa-solid fa-table-list fa-lg"></i>
+                <Tooltip
+                    class="tooltip activities"
+                    :content="'Activities'"
+                    :trianglePositionWithContent="'up'"></Tooltip>
                 <span class="nav-text">Activities</span>
             </router-link>
-            <router-link to="/#events" class="header__nav-items">
+            <router-link to="/#events" class="header__nav-items not-bar-icon">
                 <i class="fa-solid fa-calendar-day fa-lg"></i>
+                <Tooltip
+                    class="tooltip events"
+                    :content="'Events'"
+                    :trianglePositionWithContent="'up'"></Tooltip>
                 <span class="nav-text">Events</span>
             </router-link>
         </nav>
@@ -59,8 +79,13 @@
 </template>
 
 <script>
+import Tooltip from '../common/Tooltip.vue'
+
 export default {
     name: "Header",
+    components: {
+        Tooltip
+    },
     data() {
         return {
             clubInfo: {
@@ -136,7 +161,7 @@ $header-item-secondary-color: #cb56b2;
             color: $header-item-secondary-color;
         }
         
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 610px) {
             display: inline;
         }
 
@@ -156,7 +181,7 @@ $header-item-secondary-color: #cb56b2;
             display: none;
         }
 
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 610px) {
             flex-direction: column;
             position: absolute;
             top: 100%;
@@ -177,10 +202,71 @@ $header-item-secondary-color: #cb56b2;
             align-items: center;
             gap: 1em;
             margin: 0;
-            padding: 0.45em 1em;
+            padding: 0.45em 1.05em;
             color: $header-item-primary-color;
             text-decoration: none;
             border-bottom: 0.15em solid $header-background-primary-color;
+            transition: all 0.3s ease-in-out;
+            
+            &.not-bar-icon {
+                position: relative;
+
+                @media screen and (max-width: 768px) {
+                    padding: 0.45em 1.75em;
+                }
+                &:hover .tooltip {
+                    opacity: 1;
+                    transform: translateY(180%);
+                }
+
+                &:hover-within {
+                    color: $header-item-primary-color;
+                    border-bottom: 0.15em solid $header-item-primary-color;
+                }
+                .tooltip {
+                    display: none;
+                    opacity: 0;
+                    position: absolute;
+                    z-index: -1;
+                    top: 12%;
+                    transform: translateY(0);
+                    transition: transform 0.3s ease-in-out,
+                    opacity 0.2s ease-in-out allow-discrete;
+                    
+                    @media screen and (max-width: 768px) {
+                        display: flex;
+                    }
+
+                    &:hover {
+                        opacity: 0;
+                        transform: translateY(0);
+                    }
+
+                    &:hover +i {
+                        color: $header-item-primary-color;
+                    }
+                    
+                    &.home {
+                        left: 14.3725%;
+                    }
+
+                    &.about {
+                        left: -1.5%;
+                    }
+
+                    &.members {
+                        left: 1.5%;
+                    }
+
+                    &.activities {
+                        left: -1.5%;
+                    }
+
+                    &.events {
+                        left: 8%;
+                    }
+                }
+            }
 
             &.router-link-exact-active {
                 color: $header-item-secondary-color;
