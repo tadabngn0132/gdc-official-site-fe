@@ -178,9 +178,13 @@ $header-item-secondary-color: #cb56b2;
             flex-direction: column;
             text-decoration: none;
             text-align: left;
-            font-size: 15px;
+            font-size: 17px;
             padding: 0;
             gap: 0.75em;
+
+            @media screen and (max-width: 1440px) {
+                font-size: 16px;
+            }
 
             @media screen and (max-width: 610px) {
                 font-size: 14.5px;
@@ -214,8 +218,12 @@ $header-item-secondary-color: #cb56b2;
 
         &.contact {
             flex-direction: column;
-            font-size: 15px;
+            font-size: 17px;
             gap: 0.5em;
+
+            @media screen and (max-width: 1440px) {
+                font-size: 16px;
+            }
 
             @media screen and (max-width: 610px) {
                 font-size: 14.5px;
@@ -356,10 +364,13 @@ $header-item-secondary-color: #cb56b2;
             }
 
             @media screen and (max-width: 610px) {
-                // width: 6.48em;
-                // height: 3em;
                 width: 7.5em;
                 height: 3.472em;
+            }
+
+            @media screen and (max-width: 450px) {
+                width: 6.48em;
+                height: 3em;
             }
         }
     }
