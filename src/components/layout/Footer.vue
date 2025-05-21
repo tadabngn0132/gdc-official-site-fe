@@ -158,6 +158,14 @@ $header-item-secondary-color: #cb56b2;
         font-weight: 600;
 
         @media screen and (max-width: 1440px) {
+            font-size: 32px;
+        }
+
+        @media screen and (max-width: 876px) {
+            font-size: 37px;
+        }
+
+        @media screen and (max-width: 610px) {
             font-size: 27px;
         }
     }
@@ -173,6 +181,10 @@ $header-item-secondary-color: #cb56b2;
             font-size: 15px;
             padding: 0;
             gap: 0.75em;
+
+            @media screen and (max-width: 610px) {
+                font-size: 14.5px;
+            }
 
             @media screen and (max-width: 360px) {
                 font-size: 13.5px;
@@ -204,6 +216,10 @@ $header-item-secondary-color: #cb56b2;
             flex-direction: column;
             font-size: 15px;
             gap: 0.5em;
+
+            @media screen and (max-width: 610px) {
+                font-size: 14.5px;
+            }
 
             @media screen and (max-width: 360px) {
                 font-size: 13.5px;
@@ -328,15 +344,22 @@ $header-item-secondary-color: #cb56b2;
         img {
             width: 15.12em;
             height: 7em;
-
+            
             @media screen and (max-width: 950px) {
                 width: 10.8em;
                 height: 5em;
             }
+            
+            @media screen and (max-width: 876px) {
+                width: 15.12em;
+                height: 7em;
+            }
 
-            @media screen and (max-width: 540px) {
-                width: 6.48em;
-                height: 3em;
+            @media screen and (max-width: 610px) {
+                // width: 6.48em;
+                // height: 3em;
+                width: 7.5em;
+                height: 3.472em;
             }
         }
     }
@@ -353,7 +376,7 @@ $header-item-secondary-color: #cb56b2;
             gap: 4em;
         }
 
-        @media screen and (max-width: 610px) {
+        @media screen and (max-width: 876px) {
             flex-direction: column;
             gap: 2.75em;
         }
@@ -374,7 +397,7 @@ $header-item-secondary-color: #cb56b2;
                 gap: 4.5em;
             }
 
-            @media screen and (max-width: 1024px) {
+            @media screen and (max-width: 1240px) {
                 flex-direction: column;
                 gap: 2.75em;
             }

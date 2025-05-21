@@ -50,7 +50,7 @@
         </nav>
 
         <div @click.stop="clickBarIcon" class="header__nav-bar-icon" :class="{ 'active': isHeaderNavOpen }">
-            <i class="fa-solid fa-bars fa-2xl"></i>
+            <i class="fa-solid fa-bars fa-xl"></i>
         </div>
 
         <nav v-if="isHeaderNavOpen === true" @click.stop="closeHeaderNav" class="header__nav mobile">
@@ -213,16 +213,19 @@ $header-item-secondary-color: #cb56b2;
 
                 @media screen and (max-width: 768px) {
                     padding: 0.45em 1.75em;
+                
                 }
+
                 &:hover .tooltip {
                     opacity: 1;
                     transform: translateY(180%);
                 }
-
-                &:hover-within {
+                
+                &:has(.tooltip:hover) {
                     color: $header-item-primary-color;
-                    border-bottom: 0.15em solid $header-item-primary-color;
+                    border-bottom: 0.15em solid $header-background-primary-color;
                 }
+
                 .tooltip {
                     display: none;
                     opacity: 0;
@@ -242,7 +245,7 @@ $header-item-secondary-color: #cb56b2;
                         transform: translateY(0);
                     }
 
-                    &:hover +i {
+                    &:hover ~i {
                         color: $header-item-primary-color;
                     }
                     
